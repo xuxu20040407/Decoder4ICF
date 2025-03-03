@@ -30,6 +30,15 @@ However, the decoder is not perfect, and it has some limitations:
 
 Such one Loop is called a **Decoder4ICF Loop**. Relavant code is in `ReinforceLearning_new.py`.
 
+# File Structure
+
+- `./ReinforceLearning_new.py`: The main code for the Decoder4ICF Loop.
+- `./feature_ana/feature_ana.py`: The code for the analysis of the physical significance embedded in the decoder.
+- `./Original_Sample/1D_database_final.py` and `./Original_Sample/read_1D_fit.py`: The code for sampling in the dataset space.
+- `./Encoder/Encoder.py`: The code for training the encoder.
+- `./decoder_model/decoder_model_{index}.pth`: Model pth files for the decoder in the $index^{th}$ Loop.
+- `./data_distribution/data_distribution_{index}.png`: Data distribution for the generated data in the $index^{th}$ Loop.
+- `./pymulti`: Relevant code for the Multi calculation. You can visit [here](https://github.com/xuxu20040407/PyMulti) for more information.
 
 # Result
 
@@ -49,13 +58,13 @@ There are some spikes in the histogram of the new dataset, which is caused by th
 
 ## Physical Significance Embedded in the Decoder
 
-Relavant code is in `feature_ana.py`. This is a DEMO:
+Relavant code is in `feature_ana.py`.
 
-![ana](label_modification_analysis.png)
+![ana](./feature_ana/label_modification_analysis.png)
+
+
 
 ## Higher Presicion of the Decoder
-
-DEMO:
 
 Decoder after 1 Decoder4ICF Loop:
 
@@ -65,4 +74,12 @@ Decoder after 5 Decoder4ICF Loops:
 
 ![4](./power_reconstruction/power_reconstruction_4.png)
 
+## Higher Presicion of the Encoder
 
+![label](./Encoder/label.png)
+
+![loss](./Encoder/loss.png)
+
+**Model 1** is trained with the original dataset, and **Model 2** is trained with the combined dataset after 5 Decoder4ICF Loops.
+
+Although the loss of Model 1 is lower than Model 2, Model 2 behaves better in the test dataset, which means higher generalization ability.
