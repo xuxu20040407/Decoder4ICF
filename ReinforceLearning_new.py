@@ -138,7 +138,7 @@ def plot_distribution(data, index,index_vector):
     stds = np.std(feature, axis=0)
     output_size=len(index_vector)
 
-    plt.figure(figsize=(20, 10))
+    plt.figure(figsize=(20, 20/output_size))
     for i in range(feature.shape[1]):
         plt.subplot(1, output_size, i + 1)
         plt.hist(feature[:, i], bins=30, alpha=0.7, color='blue', edgecolor='black')
