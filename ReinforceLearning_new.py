@@ -206,7 +206,7 @@ for iteration in range(5):
     Laser_grid = np.hstack((new_column, Laser_grid))
     
     # 多进程处理
-    with ProcessPoolExecutor(max_workers=50) as pool:
+    with ProcessPoolExecutor(max_workers=60) as pool:
         futures = [pool.submit(thread_task, i, new_dir, Laser_grid) for i in range(Laser_grid.shape[0])]
     
     # 保存扩展数据
