@@ -2,7 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01b61e12-9724-4005-a021-2e3e5846d4af" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ReinforceLearning_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReinforceLearning_new.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compile/1D/block_0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compile/1D/fit_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compile/1D/fort.10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compile/1D/inp_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compile/1D/readfort10.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pymulti/multi_1D.py" beforeDir="false" afterPath="$PROJECT_DIR$/pymulti/multi_1D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/1D/block_0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/1D/fit_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/1D/inp_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/1D/readfort10.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/1D_fit/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/1D_fit/a.out_fort10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/1D_fit/block_0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/1D_fit/fit_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/1D_fit/fort.10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/1D_fit/inp_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/1D_fit/readfort10.m" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,22 +29,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2tnJGXQf4eoTYukLFwJaEOymYMY" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
