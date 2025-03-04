@@ -30,11 +30,13 @@ class Encoder(nn.Module):
     def __init__(self, input_size, hidden_size, output_size):
         super(Encoder, self).__init__()
         self.fc1 = nn.Linear(input_size, hidden_size)
-        self.fc2 = nn.Linear(hidden_size, output_size)
+        self.fc2 = nn.Linear(hidden_size, hidden_size)
+        self.fc3 = nn.Linear(hidden_size, output_size)
 
     def forward(self, x):
-        x = torch.relu(self.fc1(x))
-        x = torch.relu(self.fc2(x))
+        x = torch.tanh(self.fc1(x))
+        x = torch.tanh(self.fc2(x))
+        x = torch.tanh(self.fc3(x))
         return x
 
 # 初始化模型参数
@@ -49,12 +51,12 @@ data = np.load(data_path)  # 加载.npy文件
 index_vector = [0, 1, 2, 3, 5]
 
 
-original_data_path="original_data1.npy"
+original_data_path="original_data.npy"
 original_data=np.load(original_data_path)
 original_size=original_data.shape[0]
 
 # 分割数据集
-train_data_1 = original_data  # 第一组训练数据
+train_data_1 = data[:original_size]  # 第一组训练数据
 train_data_2 = data[-original_size:]  # 第二组训练数据
 test_data = data[original_size:-original_size]  # 测试数据
 random_indices = np.random.choice(len(test_data), size=500, replace=False)
@@ -103,7 +105,7 @@ test_labels_tensor_2 = torch.tensor(test_labels_2, dtype=torch.float32)
 criterion = nn.MSELoss()
 
 # 训练模型的函数
-def train_model(train_power_sequences, train_labels, num_epochs=100):
+def train_model(train_power_sequences, train_labels, num_epochs=300):
     encoder = Encoder(input_size, hidden_size, output_size)
     optimizer = optim.Adam(encoder.parameters(), lr=0.001)
     dataset = TensorDataset(train_power_sequences, train_labels)

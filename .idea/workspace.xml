@@ -2,24 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01b61e12-9724-4005-a021-2e3e5846d4af" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compile/1D/block_0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compile/1D/fit_0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compile/1D/fort.10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compile/1D/inp_0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compile/1D/readfort10.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pymulti/multi_1D.py" beforeDir="false" afterPath="$PROJECT_DIR$/pymulti/multi_1D.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/1D/block_0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/1D/fit_0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/1D/inp_0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/1D/readfort10.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/1D_fit/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/1D_fit/a.out_fort10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/1D_fit/block_0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/1D_fit/fit_0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/1D_fit/fort.10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/1D_fit/inp_0.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/1D_fit/readfort10.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Encoder/encoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/Encoder/encoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Encoder/label.png" beforeDir="false" afterPath="$PROJECT_DIR$/Encoder/label.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Encoder/loss.png" beforeDir="false" afterPath="$PROJECT_DIR$/Encoder/loss.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature_ana/label_modification_analysis.png" beforeDir="false" afterPath="$PROJECT_DIR$/feature_ana/label_modification_analysis.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
