@@ -55,6 +55,8 @@ def train_and_analyze_model(data_path, original_data_path, index=None, retrain=F
     index_mean, index_std = calculate_distribution(index_data, [0, 1, 2, 3, 5])
 
     # 提取标签和功率数据
+    index_label=['rhoR','Tmean','Vimplo','IFAR','alphaDT','rhomax',
+    't','Eimplo','Edelas']
     index_vector = [0, 1, 2, 3, 5]
     powers = data[:, :100]
     labels = data[:, 100:][:, index_vector]
@@ -144,7 +146,7 @@ def train_and_analyze_model(data_path, original_data_path, index=None, retrain=F
             ax = axes[label_idx, offset_idx]
             ax.plot(first_sample_powers, label="Original Power", color="blue")
             ax.plot(reconstructed_power_inv, label=f"Reconstructed Power (Offset: {offset:.2f} std)", color="orange", linestyle="--")
-            ax.set_title(f"Label {label_idx + 1},  {index_mean[label_idx]+offset*index_std[label_idx]:.4f}")
+            ax.set_title(f" {index_label[index_vector[label_idx]]},  {index_mean[label_idx]+offset*index_std[label_idx]:.4f}")
             ax.set_xlabel("Time Step")
             ax.set_ylabel("Power")
             ax.legend()
