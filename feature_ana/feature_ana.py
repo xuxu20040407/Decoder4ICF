@@ -18,13 +18,20 @@ class Decoder(nn.Module):
         x = self.fc2(x)
         return x
 
-def train_and_analyze_model(data_path,original_data_path, index=None, retrain=False, num_epochs=300, lr=0.001):
+def calculate_distribution(data,index_vector):
+    labels = data[:, 100:][:,index_vector]
+    mean_values = np.mean(labels, axis=0)
+    std_values = np.std(labels, axis=0)
+    return mean_values, std_values
+
+def train_and_analyze_model(data_path, original_data_path, index=None, retrain=False, num_epochs=300, lr=0.001):
     """
     训练解码器模型并进行分析。
 
     参数:
         data_path (str): 数据文件路径。
-        index (int, optional): 如果加载预训练模型，指定模型索引。默认为None。
+        original_data_path (str): 原始数据文件路径。
+        index (int, optional): 模型索引和数据索引。默认为None。
         retrain (bool, optional): 是否重新训练模型。默认为False。
         num_epochs (int, optional): 训练轮数。默认为300。
         lr (float, optional): 学习率。默认为0.001。
@@ -36,9 +43,18 @@ def train_and_analyze_model(data_path,original_data_path, index=None, retrain=Fa
 
     # 加载数据
     data = np.load(data_path)
-    original_data=np.load(original_data_path)
+    original_data = np.load(original_data_path)
 
+    # 提取 index_data
+    if index is not None:
+        index_data = data[original_data.shape[0] + index * 3125:original_data.shape[0] + (index + 1) * 3125]
+    else:
+        index_data = data
 
+    # 计算 index_data 的均值和标准差
+    index_mean, index_std = calculate_distribution(index_data, [0, 1, 2, 3, 5])
+
+    # 提取标签和功率数据
     index_vector = [0, 1, 2, 3, 5]
     powers = data[:, :100]
     labels = data[:, 100:][:, index_vector]
@@ -100,18 +116,18 @@ def train_and_analyze_model(data_path,original_data_path, index=None, retrain=Fa
     first_sample_labels = labels[0]  # 第一行原始标签
     first_sample_powers = powers[0]  # 第一行原始功率序列
 
-    # 定义系数范围
-    coefficients = [0.8, 0.9, 1.0, 1.1, 1.2]
+    # 定义偏移系数（基于标准差）
+    offsets = [-1, -0.5,0, 0.5, 1]
 
     # 创建画布
     fig, axes = plt.subplots(feature_size, 5, figsize=(20, 20))  # feature_size行5列的子图
 
-    # 遍历每个标签和系数
+    # 遍历每个标签和偏移
     for label_idx in range(feature_size):  # feature_size个标签
-        for coeff_idx, coeff in enumerate(coefficients):  # 5个系数
+        for offset_idx, offset in enumerate(offsets):  # 5个偏移
             # 修改当前标签的值（在原始数据上操作）
             modified_labels = first_sample_labels.copy()
-            modified_labels[label_idx] *= coeff
+            modified_labels[label_idx] += offset * index_std[label_idx]
 
             # 将修改后的标签归一化
             normalized_modified_labels = scaler_labels.transform(modified_labels.reshape(1, -1))
@@ -125,10 +141,10 @@ def train_and_analyze_model(data_path,original_data_path, index=None, retrain=Fa
             reconstructed_power_inv = scaler_powers.inverse_transform(reconstructed_power.reshape(1, -1)).flatten()
 
             # 绘制原始功率曲线和重构功率曲线
-            ax = axes[label_idx, coeff_idx]
+            ax = axes[label_idx, offset_idx]
             ax.plot(first_sample_powers, label="Original Power", color="blue")
-            ax.plot(reconstructed_power_inv, label=f"Reconstructed Power (Coeff: {coeff})", color="orange", linestyle="--")
-            ax.set_title(f"Label {label_idx + 1}, Coeff {coeff}")
+            ax.plot(reconstructed_power_inv, label=f"Reconstructed Power (Offset: {offset:.2f} std)", color="orange", linestyle="--")
+            ax.set_title(f"Label {label_idx + 1},  {index_mean[label_idx]+offset*index_std[label_idx]:.4f}")
             ax.set_xlabel("Time Step")
             ax.set_ylabel("Power")
             ax.legend()
@@ -141,4 +157,4 @@ def train_and_analyze_model(data_path,original_data_path, index=None, retrain=Fa
 
 
 # train_and_analyze_model(data_path="combined_data.npy",original_data_path="original_data.npy", retrain=True)
-train_and_analyze_model(data_path="combined_data.npy",original_data_path="original_data.npy", index=4)
+train_and_analyze_model(data_path="combined_data.npy",original_data_path="original_data1.npy", index=2)
