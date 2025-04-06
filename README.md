@@ -83,3 +83,12 @@ Decoder after 5 Decoder4ICF Loops:
 **Model 1** is trained with the original dataset, and **Model 2** is trained with the combined dataset after 5 Decoder4ICF Loops.
 
 Although the loss of Model 1 is lower than Model 2, Model 2 behaves better in the test dataset, which means higher generalization ability.
+
+# Update
+
+- 2025.04.06: Reconstructed the code for the Decoder4ICF Loop. The new code is more efficient and easier to understand. Also Added some fancy figures.
+
+
+![scatter](./scatter_comparison-1.png)
+
+![error](./relative_error_subplots-1.png)
