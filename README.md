@@ -76,19 +76,18 @@ Decoder after 5 Decoder4ICF Loops:
 
 ## Higher Presicion of the Encoder
 
-![label](./Encoder/label.png)
+![loss](./Transformer_training_loss_curves_logscale.png)
 
-![loss](./Encoder/loss.png)
+![scatter](./scatter_only.png)
 
-**Model 1** is trained with the original dataset, and **Model 2** is trained with the combined dataset after 5 Decoder4ICF Loops.
+![error](./relative_error_subplots.png)
 
-Although the loss of Model 1 is lower than Model 2, Model 2 behaves better in the test dataset, which means higher generalization ability.
+These are 4 models trained with different datasets - **Grid** Sampling, **L**atin **H**ypercube **S**ampling, **A**uto-**E**ncoder and **P**hysics-**I**nformed **D**ecoder. They are trained by the same hyper-parameters and the same training process. This means the differnece of model performance only caused by the quality of the dataset.
+
+Although the loss of **PID** Model is higher than other Model, it behaves better in the validation dataset, which means higher generalization ability.
 
 # Update
 
-- 2025.04.06: Reconstructed the code for the Decoder4ICF Loop. The new code is more efficient and easier to understand. Also Added some fancy figures.
+- 2025.04.06: Reconstructed the code for the Decoder4ICF Loop. The new code is more efficient and easier to understand.
+- 2025.04.21: Added the code of AE Loop.
 
-
-![scatter](./scatter_comparison-1.png)
-
-![error](./relative_error_subplots-1.png)
